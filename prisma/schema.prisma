@@ -39,6 +39,8 @@ model Mobile {
   slug String @unique
   price Int
   display String?
+  display_size String?
+  resolution String?
   os String?
   batery String?
   weight String?

@@ -14,6 +14,9 @@ dependencies:
   '@trpc/server':
     specifier: ^10.12.0
     version: 10.12.0
+  h3-zod:
+    specifier: ^0.5.1
+    version: 0.5.1(h3@1.7.1)(zod@3.21.2)
   next-auth:
     specifier: ^4.18.8
     version: 4.18.8(next@13.4.12)(react-dom@18.2.0)(react@18.2.0)
@@ -3915,6 +3918,16 @@ packages:
     dependencies:
       duplexer: 0.1.2
     dev: true
+
+  /h3-zod@0.5.1(h3@1.7.1)(zod@3.21.2):
+    resolution: {integrity: sha512-hltUPbYv7XYAzZJIvA2lTfRBO9QyDXhALmalfRaVdjSeuCV4vLi7hULaA+n+orGR68rRLFZ2Gc9hbfQ756GZpg==}
+    peerDependencies:
+      h3: ^1.6.0
+      zod: ^3.21.0
+    dependencies:
+      h3: 1.7.1
+      zod: 3.21.2
+    dev: false
 
   /h3@1.7.1:
     resolution: {integrity: sha512-A9V2NEDNHet7v1gCg7CMwerSigLi0SRbhTy7C3lGb0N4YKIpPmLDjedTUopqp4dnn7COHfqUjjaz3zbtz4QduA==}
