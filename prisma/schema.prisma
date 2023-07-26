@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // NOTE: You probably want to change this to another database later on
+  provider = "sqlite"
+
+  // This value is read from the .env file.
+  url = env("DATABASE_URL")
+}
+
+model Example {
+  id          String @id @default(uuid())
+  details     String
+}
+
+
+model User {
+  id  Int @id @default(autoincrement())
+  username  String @unique
+  email String @unique
+  password String
+  first_name String?
+  last_name String?
+  is_admin Boolean  @default(false)
+  is_active Boolean @default(true)
+  last_login DateTime
+  date_joined DateTime
+}
+
+model Mobile {
+  id  Int @id @default(autoincrement())
+  name String @unique
+  title String
+  slug String @unique
+  price Int
+  display String?
+  os String?
+  batery String?
+  weight String?
+  introduction String?
+  expert_checks String?
+  image String?
+  rating Int?
+}
