@@ -10,4 +10,7 @@
  * export type Context = inferAsyncReturnType<typeof createContext>
  * ```
  */
-export default defineEventHandler(event => event.context.prisma.example.findMany())
+export default defineEventHandler(() => {
+  const data = 'event.req.statusCode'
+  return { eve: data }
+})
