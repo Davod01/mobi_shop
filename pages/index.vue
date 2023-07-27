@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const { data: mobiles } = useFetch('/api/mobiles')
+const { data: mobiles } = useFetch('/api/v1/mobiles')
 
 async function fetchData () {
-  const { data } = await useFetch('/api/mobiles/delete', {
+  const { data } = await useFetch('/api/mobiles/v1/delete', {
     method: 'DELETE',
     query: { id: 4 }
   })

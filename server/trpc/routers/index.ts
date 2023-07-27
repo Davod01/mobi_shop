@@ -1,19 +1,8 @@
-import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { router } from '../trpc'
+import { mobileRoute } from './mobileRoute'
 
 export const appRouter = router({
-  hello: publicProcedure
-    .input(
-      z.object({
-        text: z.string().nullish()
-      })
-    )
-    .query(({ input }) => {
-      return {
-        greeting: `hello ${input?.text ?? 'world'}`,
-        time: new Date()
-      }
-    })
+  mobiles: mobileRoute
 })
 
 // export type definition of API
