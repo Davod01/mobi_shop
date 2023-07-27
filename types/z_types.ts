@@ -1,6 +1,9 @@
 import { z, ZodError } from 'zod'
 
-export const Mobile = z.object({
+import type { Prisma } from '@prisma/client'
+
+export const Mobile: z.ZodType<Prisma.MobileCreateInput> = z.object({
+  id: z.number().optional(),
   name: z.string(),
   title: z.string(),
   slug: z.string(),
@@ -20,6 +23,6 @@ export type Mobile = z.infer<typeof Mobile>
 
 export type validateData = {
   success: boolean,
-  data?: object,
+  data?: Mobile,
   error?: ZodError
 }

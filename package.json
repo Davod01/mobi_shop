@@ -26,6 +26,7 @@
     "@trpc/server": "^10.12.0",
     "h3-zod": "^0.5.1",
     "next-auth": "^4.18.8",
+    "prisma-zod-generator": "^0.8.13",
     "superjson": "^1.12.2",
     "trpc-nuxt": "^0.7.0",
     "zod": "^3.21.2"

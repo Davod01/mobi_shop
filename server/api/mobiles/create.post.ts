@@ -23,6 +23,6 @@ export default defineEventHandler(async (event) => {
     sendError(event, err)
   }
 
-  const res = await event.context.prisma.mobile.create({ data: data.data})
+  const res = await event.context.prisma.mobile.create({ data: data.data })
   return res
 })

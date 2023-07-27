@@ -5,6 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator zod {
+  provider = "prisma-zod-generator"
+}
+
 datasource db {
   // NOTE: You probably want to change this to another database later on
   provider = "sqlite"
