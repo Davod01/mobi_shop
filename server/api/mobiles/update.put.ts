@@ -1,17 +1,20 @@
-import { Mobile, validateData } from '~/types/z_types'
+import { MobileUpdateOneSchema } from '~/prisma/generated/schemas'
 
 export default defineEventHandler(async (event) => {
-  const body = readBody(event)
-  const isValide: validateData = Mobile.safeParse(body)
+  const parsedBody = await readBody(event)
+  const parsedQuery: any = getQuery(event)
+  if (parsedQuery.id) { parsedQuery.id = parseInt(parsedQuery.id) }
 
-  if (!isValide.success) {
-    const error = createError({ statusCode: 400, statusMessage: 'invalid data' })
-    sendError(event, error)
+  try {
+    const parsedData = MobileUpdateOneSchema.parse({ where: parsedQuery, data: parsedBody })
+    const mobile = await event.context.prisma.mobile.update({
+      where: parsedData.where,
+      data: parsedData.data
+    }).catch((err: any) => {
+      return { error: err.meta }
+    })
+    return mobile
+  } catch (err: any) {
+    return { error: err }
   }
-
-  const mobile = await event.context.prisma.mobile.update({
-    where: { id: isValide.data?.id },
-    data: isValide.data
-  })
-  return mobile
 })

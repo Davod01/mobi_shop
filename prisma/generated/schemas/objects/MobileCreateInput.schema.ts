@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client'
 
 const Schema: z.ZodType<Prisma.MobileCreateInput> = z
   .object({
@@ -17,8 +17,8 @@ const Schema: z.ZodType<Prisma.MobileCreateInput> = z
     introduction: z.string().optional().nullable(),
     expert_checks: z.string().optional().nullable(),
     image: z.string().optional().nullable(),
-    rating: z.number().optional().nullable(),
+    rating: z.number().optional().nullable()
   })
-  .strict();
+  .strict()
 
-export const MobileCreateInputObjectSchema = Schema;
+export const MobileCreateInputObjectSchema = Schema

@@ -1,24 +1,10 @@
 <script setup lang="ts">
+const { data: mobiles } = useFetch('/api/mobiles')
 
 async function fetchData () {
-  const { data } = await useFetch('/api/mobiles/create', {
-    method: 'POST',
-    body: {
-      name: 'phone name 4',
-      title: 'phone title',
-      slug: 'phone slug 4',
-      price: 5000,
-      display: 'hex',
-      display_size: 'hex',
-      resolution: 'hex',
-      os: 'hex',
-      batery: 'hex',
-      weight: 'hex',
-      introduction: 'hex',
-      expert_checks: 'hex',
-      image: 'hex',
-      rating: 'hex'
-    }
+  const { data } = await useFetch('/api/mobiles/delete', {
+    method: 'DELETE',
+    query: { id: 4 }
   })
   console.log(data.value)
 }
@@ -27,6 +13,10 @@ async function fetchData () {
 
 <template>
   <div>
+    <div v-for="mobile in mobiles" :key="mobile.id">
+      <br>
+      {{ mobile }}
+    </div>
     <button @click="fetchData">
       click
     </button>
