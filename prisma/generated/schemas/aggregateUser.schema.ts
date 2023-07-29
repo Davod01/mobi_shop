@@ -5,8 +5,6 @@ import { UserWhereUniqueInputObjectSchema } from './objects/UserWhereUniqueInput
 import { UserCountAggregateInputObjectSchema } from './objects/UserCountAggregateInput.schema';
 import { UserMinAggregateInputObjectSchema } from './objects/UserMinAggregateInput.schema';
 import { UserMaxAggregateInputObjectSchema } from './objects/UserMaxAggregateInput.schema';
-import { UserAvgAggregateInputObjectSchema } from './objects/UserAvgAggregateInput.schema';
-import { UserSumAggregateInputObjectSchema } from './objects/UserSumAggregateInput.schema';
 
 export const UserAggregateSchema = z.object({
   orderBy: z
@@ -24,6 +22,4 @@ export const UserAggregateSchema = z.object({
     .optional(),
   _min: UserMinAggregateInputObjectSchema.optional(),
   _max: UserMaxAggregateInputObjectSchema.optional(),
-  _avg: UserAvgAggregateInputObjectSchema.optional(),
-  _sum: UserSumAggregateInputObjectSchema.optional(),
 });

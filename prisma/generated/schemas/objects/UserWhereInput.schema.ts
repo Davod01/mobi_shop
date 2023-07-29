@@ -1,9 +1,10 @@
 import { z } from 'zod';
-import { IntFilterObjectSchema } from './IntFilter.schema';
 import { StringFilterObjectSchema } from './StringFilter.schema';
 import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
+import { DateTimeNullableFilterObjectSchema } from './DateTimeNullableFilter.schema';
 import { BoolFilterObjectSchema } from './BoolFilter.schema';
-import { DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
+import { AccountListRelationFilterObjectSchema } from './AccountListRelationFilter.schema';
+import { SessionListRelationFilterObjectSchema } from './SessionListRelationFilter.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -25,36 +26,39 @@ const Schema: z.ZodType<Prisma.UserWhereInput> = z
         z.lazy(() => UserWhereInputObjectSchema).array(),
       ])
       .optional(),
-    id: z.union([z.lazy(() => IntFilterObjectSchema), z.number()]).optional(),
-    username: z
+    id: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
+    name: z
+      .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
+      .optional()
+      .nullable(),
     email: z
-      .union([z.lazy(() => StringFilterObjectSchema), z.string()])
-      .optional(),
+      .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
+      .optional()
+      .nullable(),
     password: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
-    first_name: z
+    emailVerified: z
+      .union([
+        z.lazy(() => DateTimeNullableFilterObjectSchema),
+        z.coerce.date(),
+      ])
+      .optional()
+      .nullable(),
+    image: z
       .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
       .optional()
       .nullable(),
-    last_name: z
-      .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
-      .optional()
-      .nullable(),
-    is_admin: z
+    isAdmin: z
       .union([z.lazy(() => BoolFilterObjectSchema), z.boolean()])
       .optional(),
-    is_active: z
+    isActive: z
       .union([z.lazy(() => BoolFilterObjectSchema), z.boolean()])
       .optional(),
-    last_login: z
-      .union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()])
-      .optional(),
-    date_joined: z
-      .union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()])
-      .optional(),
+    accounts: z.lazy(() => AccountListRelationFilterObjectSchema).optional(),
+    sessions: z.lazy(() => SessionListRelationFilterObjectSchema).optional(),
   })
   .strict();
 

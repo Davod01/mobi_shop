@@ -1,13 +1,20 @@
 <script setup lang="ts">
-const { data: event, error } = await useFetch('/api/examples')
-console.log(event.value)
-console.log('this is error')
-console.log(error.value)
+definePageMeta({
+  auth: {
+    unauthenticatedOnly: true,
+    navigateAuthenticatedTo: '/'
+  }
+})
+const { signIn } = useAuth()
+const login = async () => {
+  const data = await signIn('credentials', { email: 'crud@mail.com', password: 'Davod9569', callbackUrl: '/' })
+  console.log(data)
+}
 
 </script>
 
 <template>
   <div>
-    Prisma ORM Data from the database, received records:
+    click to login <button @click="login">login</button>
   </div>
 </template>

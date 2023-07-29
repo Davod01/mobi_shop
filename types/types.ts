@@ -1,21 +1,6 @@
-export type User = {
-  'username': string,
-  'is_active': boolean
-  'email': string,
-  'first_name'?: string,
-  'last_name'?: string,
-  [key: string]: any
-}
+import { z } from 'zod'
 
-export type UserForm = {
-  username: string,
-  password: string
-  [key: string]: any
-}
-
-export type Token = {
-  access: string,
-  refresh: string
-}
-
-export type AccessToken = Pick<Token, 'access'>
+export const UserCredentional = z.object({
+  email: z.string().email().min(10).max(200),
+  password: z.string().min(6).max(255)
+})

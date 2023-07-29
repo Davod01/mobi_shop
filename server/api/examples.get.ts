@@ -10,7 +10,10 @@
  * export type Context = inferAsyncReturnType<typeof createContext>
  * ```
  */
-export default defineEventHandler(() => {
-  const data = 'event.req.statusCode'
-  return { eve: data }
+import { getServerSession, getToken } from '#auth'
+
+export default defineEventHandler(async (event) => {
+  const session = await getServerSession(event)
+  const token = await getToken({ event })
+  return { res: session, token }
 })

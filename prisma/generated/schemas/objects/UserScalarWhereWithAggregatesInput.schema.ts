@@ -1,9 +1,8 @@
 import { z } from 'zod';
-import { IntWithAggregatesFilterObjectSchema } from './IntWithAggregatesFilter.schema';
 import { StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
 import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
+import { DateTimeNullableWithAggregatesFilterObjectSchema } from './DateTimeNullableWithAggregatesFilter.schema';
 import { BoolWithAggregatesFilterObjectSchema } from './BoolWithAggregatesFilter.schema';
-import { DateTimeWithAggregatesFilterObjectSchema } from './DateTimeWithAggregatesFilter.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -26,48 +25,44 @@ const Schema: z.ZodType<Prisma.UserScalarWhereWithAggregatesInput> = z
       ])
       .optional(),
     id: z
-      .union([z.lazy(() => IntWithAggregatesFilterObjectSchema), z.number()])
-      .optional(),
-    username: z
       .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
       .optional(),
+    name: z
+      .union([
+        z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
+        z.string(),
+      ])
+      .optional()
+      .nullable(),
     email: z
-      .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
-      .optional(),
+      .union([
+        z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
+        z.string(),
+      ])
+      .optional()
+      .nullable(),
     password: z
       .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
       .optional(),
-    first_name: z
+    emailVerified: z
+      .union([
+        z.lazy(() => DateTimeNullableWithAggregatesFilterObjectSchema),
+        z.coerce.date(),
+      ])
+      .optional()
+      .nullable(),
+    image: z
       .union([
         z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
         z.string(),
       ])
       .optional()
       .nullable(),
-    last_name: z
-      .union([
-        z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
-        z.string(),
-      ])
-      .optional()
-      .nullable(),
-    is_admin: z
+    isAdmin: z
       .union([z.lazy(() => BoolWithAggregatesFilterObjectSchema), z.boolean()])
       .optional(),
-    is_active: z
+    isActive: z
       .union([z.lazy(() => BoolWithAggregatesFilterObjectSchema), z.boolean()])
-      .optional(),
-    last_login: z
-      .union([
-        z.lazy(() => DateTimeWithAggregatesFilterObjectSchema),
-        z.coerce.date(),
-      ])
-      .optional(),
-    date_joined: z
-      .union([
-        z.lazy(() => DateTimeWithAggregatesFilterObjectSchema),
-        z.coerce.date(),
-      ])
       .optional(),
   })
   .strict();
