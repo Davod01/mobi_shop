@@ -10,10 +10,12 @@
  * export type Context = inferAsyncReturnType<typeof createContext>
  * ```
  */
-import { getServerSession, getToken } from '#auth'
 
 export default defineEventHandler(async (event) => {
-  const session = await getServerSession(event)
-  const token = await getToken({ event })
-  return { res: session, token }
+  const mobile = await event.context.prisma.mobile.findUniqueOrThrow({
+    where: {
+      id: 5
+    }
+  })
+  return mobile
 })

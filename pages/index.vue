@@ -1,37 +1,49 @@
 <script setup lang="ts">
-const headers = useRequestHeaders(['cookie']) as HeadersInit
-const { data: mobiles } = useFetch('/api/v1/mobiles')
-const { data, status } = useAuth()
-
-const { data: session } = useFetch('/api/examples', { headers })
-console.log(session.value)
-
-console.log({ data: data.value })
-
-async function fetchData () {
-  const { data } = await useFetch('/api/mobiles/v1/delete', {
-    method: 'DELETE',
-    query: { id: 4 }
-  })
-  console.log(data.value)
-}
-
+useSeoMeta({
+  title: 'فروشگاه موبایل',
+  ogTitle: 'فروشگاه موبایل',
+  description: 'یک فروشگاه موبایل ساده',
+  ogDescription: 'یک فروشگاه موبایل ساده',
+  ogLocale: 'fa_IR'
+})
 </script>
 
 <template>
   <div>
-    <div v-for="mobile in mobiles" :key="mobile.id">
-      <br>
-      {{ mobile }}
-    </div>
-    <button @click="fetchData">
-      click
-    </button>
-    <div>
-      data : {{ data }}
-    </div>
-    <div>
-      status : {{ status }}
-    </div>
+    <v-container fluid class="px-0 px-sm-2 px-lg-0">
+      <v-row>
+        <v-col cols="12" class="pa-0">
+          <LandingPageCarousel />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-img
+            src="/landing-page/1-2.jpg"
+          />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-img
+            src="/landing-page/2-1.jpg"
+          />
+        </v-col>
+
+        <v-col cols="10" class="mx-auto">
+          <LandingPageMobileSlaiderComp />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageSec3Comp />
+        </v-col>
+
+        <v-col cols="10" class="mx-auto">
+          <LandingPageMobileSlaiderComp />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageBlogPosts />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
