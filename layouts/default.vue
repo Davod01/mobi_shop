@@ -20,6 +20,7 @@ const showAlert = () => {
 
 <template>
   <v-app id="inspire">
+    <NuxtLoadingIndicator />
     <v-navigation-drawer v-model="drawer" disable-resize-watcher>
       <v-list class="" variant="plain" active-class="text-purple-darken-4">
         <v-list-item to="/" class="text-body-2 yekan-bold">
@@ -121,7 +122,6 @@ const showAlert = () => {
         <v-btn icon="mdi-basket" @click="storeDrawer = !storeDrawer" />
       </div>
     </v-app-bar>
-
     <v-main>
       <slot />
     </v-main>

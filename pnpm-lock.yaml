@@ -38,9 +38,9 @@ dependencies:
   trpc-nuxt:
     specifier: ^0.7.0
     version: 0.7.0(@trpc/client@10.36.0)(@trpc/server@10.36.0)
-  vue-typed-js:
-    specifier: ^0.1.2
-    version: 0.1.2
+  typed.js:
+    specifier: ^2.0.16
+    version: 2.0.16
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -7051,6 +7051,10 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
+  /typed.js@2.0.16:
+    resolution: {integrity: sha512-IBB52GlJiTUOnomwdVVf7lWgC6gScn8md+26zTHj5oJWA+4pSuclHE76rbGI2hnyO+NT+QXdIUHbfjAY5nEtcw==}
+    dev: false
+
   /typescript@5.1.6:
     resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
     engines: {node: '>=14.17'}
@@ -7622,12 +7626,6 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /vue-typed-js@0.1.2:
-    resolution: {integrity: sha512-9kDGuz17uYJghe/1hepRWiWYssgUFtrKnMGPHlWjVRxdvs/d9xYYWMkgzztjhx1R1B33hXkN8ctmkzCYHQ+caA==}
-    dependencies:
-      typed.js: github.com/mattboldt/typed.js/cd02e533c772e35ad60ee48656b33e610eadaca7
-    dev: false
-
   /vue@3.3.4:
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}
     dependencies:
@@ -7830,9 +7828,3 @@ packages:
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-
-  github.com/mattboldt/typed.js/cd02e533c772e35ad60ee48656b33e610eadaca7:
-    resolution: {tarball: https://codeload.github.com/mattboldt/typed.js/tar.gz/cd02e533c772e35ad60ee48656b33e610eadaca7}
-    name: typed.js
-    version: 2.0.16
-    dev: false
