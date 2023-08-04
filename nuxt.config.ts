@@ -61,5 +61,7 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true
-  }
+  },
+
+  plugins: ['/f:/projects/other/mobi_shop/plugins/01.trpcClient.ts']
 })
