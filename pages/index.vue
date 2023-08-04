@@ -1,37 +1,80 @@
 <script setup lang="ts">
-const headers = useRequestHeaders(['cookie']) as HeadersInit
-const { data: mobiles } = useFetch('/api/v1/mobiles')
-const { data, status } = useAuth()
+import { gsap } from 'gsap'
 
-const { data: session } = useFetch('/api/examples', { headers })
-console.log(session.value)
+useSeoMeta({
+  title: 'فروشگاه موبایل',
+  ogTitle: 'فروشگاه موبایل',
+  description: 'یک فروشگاه موبایل ساده',
+  ogDescription: 'یک فروشگاه موبایل ساده',
+  ogLocale: 'fa_IR'
+})
 
-console.log({ data: data.value })
-
-async function fetchData () {
-  const { data } = await useFetch('/api/mobiles/v1/delete', {
-    method: 'DELETE',
-    query: { id: 4 }
+onNuxtReady(() => {
+  gsap.from('.land-slide-right', {
+    scrollTrigger: {
+      trigger: '.land-slide-right',
+      start: 'top 70%'
+      // end: 'bottom top'
+      // scrub: true
+    },
+    x: 250,
+    duration: 0.7,
+    opacity: 0
   })
-  console.log(data.value)
-}
+
+  gsap.from('.land-slide-left', {
+    scrollTrigger: {
+      trigger: '.land-slide-left',
+      start: 'top 70%'
+      // end: 'bottom top'
+      // scrub: true
+    },
+    x: -250,
+    duration: 0.7,
+    opacity: 0
+  })
+})
 
 </script>
 
 <template>
   <div>
-    <div v-for="mobile in mobiles" :key="mobile.id">
-      <br>
-      {{ mobile }}
-    </div>
-    <button @click="fetchData">
-      click
-    </button>
-    <div>
-      data : {{ data }}
-    </div>
-    <div>
-      status : {{ status }}
-    </div>
+    <v-container fluid class="px-0 px-sm-2 px-lg-0">
+      <v-row>
+        <v-col cols="12" class="pa-0">
+          <LandingPageCarousel />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-img
+            src="/landing-page/1-2.jpg"
+            class="land-slide-right"
+          />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-img
+            src="/landing-page/2-1.jpg"
+            class="land-slide-left"
+          />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageMobileSlaiderComp />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageSec3Comp />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageMobileSlaiderComp />
+        </v-col>
+
+        <v-col cols="12">
+          <LandingPageBlogPosts />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>

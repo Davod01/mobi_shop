@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "iranyekanweblightfanum";
+  src: url('~/assets/font/iranYekan/iranyekanweblightfanum.woff') format('woff'),
+}
+
+@font-face {
+  font-family: "iranyekanwebboldfanum";
+  src: url('~/assets/font/iranYekan/iranyekanwebboldfanum.woff') format('woff'),
+}
+
+@font-face {
+  font-family: "iranyekanwebextraboldfanum";
+  src: url('~/assets/font/iranYekan/iranyekanwebextraboldfanum.ttf') format('truetype'),
+}
+
+
+// @font-face {
+//   font-family: "Yekan";
+//   src: url('~/assets/font/Yekan.eot');
+//   src: url('~/assets/font/Yekan.eot?#iefix') format('Yekan-opentype'),
+//        url('~/assets/font/Yekan.woff') format('woff'),
+//        url('~/assets/font/Yekan.ttf') format('truetype');
+//   font-weight: unset;
+//   font-style: normal;
+// }
+
+html {
+  font-family: "iranyekanweblightfanum";
+}
+
+.yekan-light {
+  font-family: "iranyekanweblightfanum" !important;
+}
+
+.yekan-bold {
+  font-family: "iranyekanwebboldfanum" !important;
+}
+
+.yekan-extra-bold {
+  font-family: "iranyekanwebextraboldfanum" !important;
+}

@@ -1,18 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { fa } from 'vuetify/locale'
+
 export default defineNuxtConfig({
   build: {
     transpile: [
-      'trpc-nuxt'
+      'trpc-nuxt',
+      'gsap'
     ]
   },
-
   modules: [
-    '@sidebase/nuxt-auth'
+    '@pinia/nuxt',
+    // '@nuxtjs/i18n',
+    '@nuxt/devtools',
+    '@sidebase/nuxt-auth',
+    '@vueuse/nuxt',
+    'vuetify-nuxt-module'
   ],
-
   typescript: {
     shim: false
-  },
-
-  plugins: ['/f:/projects/other/mobi_shop/plugins/trpcClient.ts']
+  }
 })
