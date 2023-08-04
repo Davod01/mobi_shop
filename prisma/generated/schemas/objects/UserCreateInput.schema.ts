@@ -1,8 +1,7 @@
-import { z } from 'zod';
-import { AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema';
-import { SessionCreateNestedManyWithoutUserInputObjectSchema } from './SessionCreateNestedManyWithoutUserInput.schema';
-
-import type { Prisma } from '@prisma/client';
+import { z } from 'zod'
+import type { Prisma } from '@prisma/client'
+import { AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema'
+import { SessionCreateNestedManyWithoutUserInputObjectSchema } from './SessionCreateNestedManyWithoutUserInput.schema'
 
 const Schema: z.ZodType<Prisma.UserCreateInput> = z
   .object({
@@ -19,8 +18,8 @@ const Schema: z.ZodType<Prisma.UserCreateInput> = z
       .optional(),
     sessions: z
       .lazy(() => SessionCreateNestedManyWithoutUserInputObjectSchema)
-      .optional(),
+      .optional()
   })
-  .strict();
+  .strict()
 
-export const UserCreateInputObjectSchema = Schema;
+export const UserCreateInputObjectSchema = Schema

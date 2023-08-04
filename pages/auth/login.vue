@@ -1,10 +1,53 @@
 <!-- eslint-disable camelcase -->
 <script setup lang="ts">
-
 const { signIn } = useAuth()
+const snackbar = ref<boolean>(false)
+const snackbarText = ref<string>('')
 
 const login = async () => {
   await signIn('credentials', { email: 'crud@mail.com', password: 'Davod9569', callbackUrl: '/' })
+}
+
+const signUp = async () => {
+  if (form.email.length < 10) {
+    snackbarText.value = 'ایمیل کوتاه هست'
+    snackbar.value = true
+    form.password = ''
+    form.password2 = ''
+    return
+  }
+  if (form.password.length < 6 && form.password2.length < 6) {
+    snackbarText.value = 'رمز حداقل باید شش کاراکتر باشد'
+    snackbar.value = true
+    form.password = ''
+    form.password2 = ''
+    return
+  }
+  if (form.password !== form.password2) {
+    snackbarText.value = 'تکرار رمز یکسان نیست'
+    snackbar.value = true
+    form.password = ''
+    form.password2 = ''
+    return
+  }
+  const { data, error }: {data: Ref, error: Ref} = await useFetch('/api/v1/users/user', {
+    method: 'POST',
+    body: {
+      email: form.email,
+      password: form.password
+    }
+  })
+  form.email = ''
+  form.password = ''
+  form.password2 = ''
+  if (error.value) {
+    throw createError(error.value)
+  }
+  if (data.value.message === 'created') {
+    ItLogin_page.value = true
+    snackbarText.value = 'با موفقیت اکانت شما ساخته شد'
+    snackbar.value = true
+  }
 }
 
 const ItLogin_page = ref<boolean>(true)
@@ -15,10 +58,11 @@ const PageState = computed(() => {
 const form = reactive<{
   email : string,
   password: string,
-  password2?: string
+  password2: string
 }>({
   email: '',
-  password: ''
+  password: '',
+  password2: ''
 })
 
 </script>
@@ -29,14 +73,31 @@ const form = reactive<{
       <v-img
         src="/17580.jpg"
         height="200px"
-        class="margin-center"
+        class="text-center myHeader"
         alt="title page background"
         cover
       >
         <h2 class="text-h2">
-          ورود به حساب کاربری
+          {{ ItLogin_page ? 'ورود به حساب کاربری' : 'ساخت اکانت جدید' }}
         </h2>
       </v-img>
+    </v-col>
+    <v-col>
+      <v-snackbar
+        v-model="snackbar"
+      >
+        {{ snackbarText }}
+
+        <template #actions>
+          <v-btn
+            color="pink"
+            variant="text"
+            @click="snackbar = false"
+          >
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </v-col>
 
     <v-col cols="12" md="10" class="mx-auto mb-4">
@@ -95,7 +156,7 @@ const form = reactive<{
             type="password"
           />
 
-          <v-btn color="primary" rounded="xl" class="mt-3" @click="">
+          <v-btn color="primary" rounded="xl" class="mt-3" @click="signUp">
             ثبت نام
           </v-btn>
         </v-col>

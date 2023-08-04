@@ -96,6 +96,7 @@ onNuxtReady(() => {
                 تجربه خریدی متفاوت با شرایط استثنائی
               </p>
               <v-btn
+                to="/store"
                 rounded="lg"
                 class="mt-4 reveal-type"
                 color="red"
