@@ -24,8 +24,8 @@ export const mobileParamsSchema = z.object({
   page: z.coerce.number().min(1).optional(),
   take: z.coerce.number().min(6).max(32).optional(),
   priceSortBy: z.enum(['asc', 'desc']).optional(),
-  minPrice: z.coerce.number().positive().optional(),
-  maxPrice: z.coerce.number().positive().optional()
+  minPrice: z.coerce.number().nonnegative().optional(),
+  maxPrice: z.coerce.number().nonnegative().optional()
 })
 
 export const basketItems = z.array(basketItem)

@@ -8,11 +8,11 @@ export default NuxtAuthHandler({
   // TODO: SET A STRONG SECRET, SEE https://sidebase.io/nuxt-auth/configuration/nuxt-auth-handler#secret
   secret: process.env.AUTH_SECRET,
 
-  // pages: {
-  //   signIn: '/auth/login',
-  //   error: '/auth/error'
-  //   // error: '/error'
-  // },
+  pages: {
+    signIn: '/auth/login',
+    error: '/auth/error'
+    // error: '/error'
+  },
 
   // adapter: PrismaAdapter(prisma),
 

@@ -27,9 +27,7 @@ const mobiles = res.value?.mobiles
 
 const filtersBar = ref<boolean>(false)
 
-const pagination_len = computed(() => {
-  return res.value?.paginate_size
-})
+const pagination_len = ref<number>(res.value?.paginate_size)
 
 async function page_update () {
   const query: mobileFilterParamsSchema = {}
@@ -47,6 +45,7 @@ async function page_update () {
   }
 
   mobiles.splice(0, mobiles.length)
+  pagination_len.value = data.value?.paginate_size
 
   for (const mobile of data.value?.mobiles) {
     mobiles.push(mobile)
