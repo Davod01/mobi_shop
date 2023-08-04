@@ -10,7 +10,7 @@ const CreateMobile = async () => {
         name: 'created by trpc endpoint',
         title: 'somthing',
         slug: 'created-trpc',
-        price: '32000'
+        price: 32000
       }
     )
     console.log(mobile)

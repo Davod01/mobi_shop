@@ -2,6 +2,8 @@
 <script setup lang="ts">
 import { MobilePaginatedResponseSchema } from '~/types/types'
 import { digitSeperator } from '~/composeable/utils'
+import type { mobileFilterParamsSchema } from '~/types/types'
+
 // const headers = useRequestHeaders(['cookie']) as HeadersInit
 useSeoMeta({
   title: 'محصولات',
@@ -14,8 +16,7 @@ useSeoMeta({
 const ordering = ref<string>('')
 const page = ref<number>(1)
 const displayMode = ref<number>(4)
-const priceRange = ref<[number, number]>([1000000, 100000000])
-const has_price_rang = shallowRef<boolean>(false)
+const priceRange = ref<[number, number]>([0, 100000000])
 
 const { data: res, error } : { data: Ref<MobilePaginatedResponseSchema>, error: Ref } = await useFetch('/api/v1/mobiles')
 if (error.value) {
@@ -31,11 +32,15 @@ const pagination_len = computed(() => {
 })
 
 async function page_update () {
+  const query: mobileFilterParamsSchema = {}
+  if (page.value > 1) { query.page = page.value }
+  if (ordering.value === 'asc' || ordering.value === 'desc') { query.priceSortBy = ordering.value }
+  if (priceRange.value[0] > 1000000 || priceRange.value[1] < 100000000) {
+    query.minPrice = priceRange.value[0]
+    query.maxPrice = priceRange.value[1]
+  }
   const { data, error } : { data: Ref<MobilePaginatedResponseSchema>, error: Ref } = await useFetch('/api/v1/mobiles', {
-    query: {
-      page: page.value,
-      order: ordering.value
-    }
+    query
   })
   if (error.value) {
     throw createError(error.value)
@@ -58,12 +63,12 @@ const set_price_range = (min: number, max: number) => {
   priceRange.value[0] = min
   priceRange.value[1] = max
   page.value = 1
-  has_price_rang.value = true
   page_update()
 }
 
 const remove_price_range = () => {
-  has_price_rang.value = false
+  priceRange.value[0] = 0
+  priceRange.value[1] = 100000000
   page.value = 1
   page_update()
 }
@@ -180,7 +185,9 @@ const breadcrumb_items = [
                   cols="6"
                   :sm="displayMode"
                 >
-                  <StoreListItems :mobile="mobile" />
+                  <Transition name="slide-in-right" appear>
+                    <StoreListItems :mobile="mobile" />
+                  </Transition>
                 </v-col>
               </v-row>
             </v-col>

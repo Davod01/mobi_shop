@@ -20,7 +20,6 @@ const showAlert = () => {
 
 <template>
   <v-app id="inspire">
-    <NuxtLoadingIndicator />
     <v-navigation-drawer v-model="drawer" disable-resize-watcher>
       <v-list class="" variant="plain" active-class="text-purple-darken-4">
         <v-list-item to="/" class="text-body-2 yekan-bold">
@@ -58,7 +57,7 @@ const showAlert = () => {
           </v-list-item-title>
           <v-list-item-subtitle>مبلغ: <span class="text-purple-darken-4">{{ digitSeperator(item.price.toString()) }}</span> * {{ item.quantity }}</v-list-item-subtitle>
 
-          <template #append>
+          <template #prepend>
             <v-btn
               size="small"
               variant="text"
@@ -70,7 +69,7 @@ const showAlert = () => {
       </v-list>
 
       <template #append>
-        <div class="pa-2" style="border-top: 1px solid rgba(0, 0, 0,0.15);">
+        <div class="pa-2 mb-4" style="border-top: 1px solid rgba(0, 0, 0,0.15);">
           <div class="pa-2 text-center">
             <p class="text-h6 text-grey-darken-4">
               جمع کل:
@@ -122,10 +121,10 @@ const showAlert = () => {
         <v-btn icon="mdi-basket" @click="storeDrawer = !storeDrawer" />
       </div>
     </v-app-bar>
+    <NuxtLoadingIndicator />
     <v-main>
       <slot />
     </v-main>
-
     <v-footer class="mt-4">
       <v-row class="footer-bg text-white">
         <v-col cols="10" sm="6">
@@ -212,5 +211,11 @@ const showAlert = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#inspire {
+  overflow: hidden;
+}
+.no-drag {
+  pointer-events: none;
 }
 </style>

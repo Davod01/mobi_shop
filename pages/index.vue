@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { gsap } from 'gsap'
+
 useSeoMeta({
   title: 'فروشگاه موبایل',
   ogTitle: 'فروشگاه موبایل',
@@ -6,6 +8,33 @@ useSeoMeta({
   ogDescription: 'یک فروشگاه موبایل ساده',
   ogLocale: 'fa_IR'
 })
+
+onNuxtReady(() => {
+  gsap.from('.land-slide-right', {
+    scrollTrigger: {
+      trigger: '.land-slide-right',
+      start: 'top 70%'
+      // end: 'bottom top'
+      // scrub: true
+    },
+    x: 250,
+    duration: 0.7,
+    opacity: 0
+  })
+
+  gsap.from('.land-slide-left', {
+    scrollTrigger: {
+      trigger: '.land-slide-left',
+      start: 'top 70%'
+      // end: 'bottom top'
+      // scrub: true
+    },
+    x: -250,
+    duration: 0.7,
+    opacity: 0
+  })
+})
+
 </script>
 
 <template>
@@ -19,16 +48,18 @@ useSeoMeta({
         <v-col cols="12" sm="6">
           <v-img
             src="/landing-page/1-2.jpg"
+            class="land-slide-right"
           />
         </v-col>
 
         <v-col cols="12" sm="6">
           <v-img
             src="/landing-page/2-1.jpg"
+            class="land-slide-left"
           />
         </v-col>
 
-        <v-col cols="10" class="mx-auto">
+        <v-col cols="12">
           <LandingPageMobileSlaiderComp />
         </v-col>
 
@@ -36,7 +67,7 @@ useSeoMeta({
           <LandingPageSec3Comp />
         </v-col>
 
-        <v-col cols="10" class="mx-auto">
+        <v-col cols="12">
           <LandingPageMobileSlaiderComp />
         </v-col>
 

@@ -8,9 +8,6 @@ const { push_item } = useBasket()
 const quantity = ref<number>(1)
 const { params } = useRoute()
 
-console.log('params => ')
-console.log(params)
-
 const { data: mobile, error }: {data: Ref<Mobile>, error: Ref} = await useFetch(`/api/v1/mobiles/${params.slug}`, {
   headers: {
     content: 'text/html; charset=utf-8'

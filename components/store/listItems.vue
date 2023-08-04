@@ -1,6 +1,3 @@
-<!-- eslint-disable vue/prop-name-casing -->
-<!-- eslint-disable vue/multi-word-component-names -->
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
 <script setup lang="ts">
 import type { Mobile } from '@prisma/client'
 import { digitSeperator } from '~/composeable/utils'

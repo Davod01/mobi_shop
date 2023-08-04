@@ -1,8 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
-<!-- eslint-disable vue/html-self-closing -->
 <script setup lang="ts">
-
 </script>
 
 <template>
@@ -29,6 +26,7 @@
           >
             <v-img
               src="/mobiles/Untitled-1-1-1-300x300.jpg"
+              class="no-drag"
               height="200px"
               cover
             />
@@ -47,6 +45,7 @@
             <v-img
               src="/mobiles/samsung-galexy.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>
@@ -64,6 +63,7 @@
             <v-img
               src="/mobiles/samsung-galexy.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>
@@ -81,6 +81,7 @@
             <v-img
               src="/mobiles/samsung-galexy-note.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>
@@ -98,6 +99,7 @@
             <v-img
               src="/mobiles/samsung-galexy-note-plus.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>
@@ -115,6 +117,7 @@
             <v-img
               src="/mobiles/samsung-galexy-mgb.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>
@@ -132,6 +135,7 @@
             <v-img
               src="/mobiles/samsung-galexy-j.jpg"
               height="200px"
+              class="no-drag"
               cover
             />
             <v-card-title>

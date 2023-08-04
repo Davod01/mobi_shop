@@ -23,10 +23,13 @@ export const basketItem = z.object({
 export const mobileParamsSchema = z.object({
   page: z.coerce.number().min(1).optional(),
   take: z.coerce.number().min(6).max(32).optional(),
-  order: z.string().optional()
+  priceSortBy: z.enum(['asc', 'desc']).optional(),
+  minPrice: z.coerce.number().positive().optional(),
+  maxPrice: z.coerce.number().positive().optional()
 })
 
 export const basketItems = z.array(basketItem)
 
 export type basketItem = z.infer<typeof basketItem>
 export type basketItems = z.infer<typeof basketItems>
+export type mobileFilterParamsSchema = z.infer<typeof mobileParamsSchema>

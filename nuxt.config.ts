@@ -4,7 +4,8 @@ import { fa } from 'vuetify/locale'
 export default defineNuxtConfig({
   build: {
     transpile: [
-      'trpc-nuxt'
+      'trpc-nuxt',
+      'gsap'
     ]
   },
 
@@ -16,7 +17,9 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     // '@nuxtjs/i18n',
+    '@nuxt/devtools',
     '@sidebase/nuxt-auth',
+    '@vueuse/nuxt',
     'vuetify-nuxt-module'
   ],
 
@@ -25,12 +28,18 @@ export default defineNuxtConfig({
     '/about': { prerender: true }
   },
 
+  auth: {
+    provider: {
+      type: 'authjs'
+    }
+  },
+
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1'
-    },
-    pageTransition: { name: 'fab-transition', mode: 'out-in' }
+    }
+    // pageTransition: { name: 'slide-in-right', mode: 'out-in' }
   },
 
   typescript: {
@@ -48,6 +57,9 @@ export default defineNuxtConfig({
         messages: { fa }
       }
     }
-  }
+  },
 
+  devtools: {
+    enabled: true
+  }
 })
