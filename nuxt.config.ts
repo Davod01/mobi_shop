@@ -5,10 +5,14 @@ export default defineNuxtConfig({
       'trpc-nuxt'
     ]
   },
+
   modules: [
     '@sidebase/nuxt-auth'
   ],
+
   typescript: {
     shim: false
-  }
+  },
+
+  plugins: ['/f:/projects/other/mobi_shop/plugins/trpcClient.ts']
 })
