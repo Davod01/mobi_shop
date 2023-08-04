@@ -37,7 +37,17 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1'
+      viewport: 'width=device-width, initial-scale=1',
+      htmlAttrs: {
+        lang: 'fa'
+      },
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.ico'
+        }
+      ]
     }
     // pageTransition: { name: 'slide-in-right', mode: 'out-in' }
   },

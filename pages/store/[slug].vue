@@ -17,14 +17,19 @@ if (error.value) {
   throw createError(error.value)
 }
 
-// console.log(mobile.value)
-// useSeoMeta({
-//   title: mobile.value.name.split(' ').splice(0, 6).join(' '),
-//   ogTitle: mobile.value.name.split(' ').splice(0, 6).join(' '),
-//   description: mobile.value.title,
-//   ogDescription: mobile.value.title,
-//   ogLocale: 'fa_IR'
-// })
+useSeoMeta({
+  title: mobile.value.name,
+  ogTitle: mobile.value.name,
+  description: mobile.value.title,
+  ogDescription: mobile.value.title,
+  ogLocale: 'fa_IR',
+  ogImage: mobile.value.image ?? '/mobiles/samsung-galexy-j.jpg',
+  ogUrl: '[og:url]',
+  twitterTitle: mobile.value.name.split(' ').splice(0, 4).join(' '),
+  twitterDescription: mobile.value.title,
+  twitterImage: mobile.value.image ?? '/mobiles/samsung-galexy-j.jpg',
+  twitterCard: 'summary'
+})
 
 const incrementQuantity = () => {
   quantity.value < 10 ? quantity.value++ : quantity.value

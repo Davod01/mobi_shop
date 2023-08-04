@@ -6,7 +6,13 @@ useSeoMeta({
   ogTitle: 'فروشگاه موبایل',
   description: 'یک فروشگاه موبایل ساده',
   ogDescription: 'یک فروشگاه موبایل ساده',
-  ogLocale: 'fa_IR'
+  ogLocale: 'fa_IR',
+  ogImage: '/mobiles/samsung-galexy-j.jpg',
+  ogUrl: '[og:url]',
+  twitterTitle: 'mobi shop',
+  twitterDescription: 'a shop for no one hehe',
+  twitterImage: '/mobiles/samsung-galexy-j.jpg',
+  twitterCard: 'summary'
 })
 
 onNuxtReady(() => {
