@@ -6,7 +6,7 @@ import { UserCredentional } from '~/types/types'
 
 export default NuxtAuthHandler({
   // TODO: SET A STRONG SECRET, SEE https://sidebase.io/nuxt-auth/configuration/nuxt-auth-handler#secret
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NUXT_SECRET,
 
   pages: {
     signIn: '/auth/login',
