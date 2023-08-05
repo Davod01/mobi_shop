@@ -1,13 +1,13 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
-import type { Prisma } from '@prisma/client'
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MobileWhereUniqueInput> = z
   .object({
-    id: z.coerce.number().positive().optional(),
+    id: z.number().optional(),
     name: z.string().optional(),
-    slug: z.string().optional()
+    slug: z.string().optional(),
   })
-  .strict()
+  .strict();
 
-export const MobileWhereUniqueInputObjectSchema = Schema
+export const MobileWhereUniqueInputObjectSchema = Schema;

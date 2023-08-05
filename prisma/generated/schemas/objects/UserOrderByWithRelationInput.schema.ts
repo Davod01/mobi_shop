@@ -1,8 +1,6 @@
 import { z } from 'zod';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { SortOrderInputObjectSchema } from './SortOrderInput.schema';
-import { AccountOrderByRelationAggregateInputObjectSchema } from './AccountOrderByRelationAggregateInput.schema';
-import { SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -36,12 +34,6 @@ const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
       .optional(),
     isAdmin: z.lazy(() => SortOrderSchema).optional(),
     isActive: z.lazy(() => SortOrderSchema).optional(),
-    accounts: z
-      .lazy(() => AccountOrderByRelationAggregateInputObjectSchema)
-      .optional(),
-    sessions: z
-      .lazy(() => SessionOrderByRelationAggregateInputObjectSchema)
-      .optional(),
   })
   .strict();
 

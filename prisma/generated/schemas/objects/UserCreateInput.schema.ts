@@ -1,7 +1,6 @@
-import { z } from 'zod'
-import type { Prisma } from '@prisma/client'
-import { AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema'
-import { SessionCreateNestedManyWithoutUserInputObjectSchema } from './SessionCreateNestedManyWithoutUserInput.schema'
+import { z } from 'zod';
+
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserCreateInput> = z
   .object({
@@ -13,13 +12,7 @@ const Schema: z.ZodType<Prisma.UserCreateInput> = z
     image: z.string().optional().nullable(),
     isAdmin: z.boolean().optional(),
     isActive: z.boolean().optional(),
-    accounts: z
-      .lazy(() => AccountCreateNestedManyWithoutUserInputObjectSchema)
-      .optional(),
-    sessions: z
-      .lazy(() => SessionCreateNestedManyWithoutUserInputObjectSchema)
-      .optional()
   })
-  .strict()
+  .strict();
 
-export const UserCreateInputObjectSchema = Schema
+export const UserCreateInputObjectSchema = Schema;

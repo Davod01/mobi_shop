@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './AccountUncheckedCreateNestedManyWithoutUserInput.schema';
-import { SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './SessionUncheckedCreateNestedManyWithoutUserInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -14,12 +12,6 @@ const Schema: z.ZodType<Prisma.UserUncheckedCreateInput> = z
     image: z.string().optional().nullable(),
     isAdmin: z.boolean().optional(),
     isActive: z.boolean().optional(),
-    accounts: z
-      .lazy(() => AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema)
-      .optional(),
-    sessions: z
-      .lazy(() => SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema)
-      .optional(),
   })
   .strict();
 
