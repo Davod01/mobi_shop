@@ -19,16 +19,18 @@ export default defineNuxtConfig({
     // '@nuxtjs/i18n',
     '@nuxt/devtools',
     '@sidebase/nuxt-auth',
+    'vuetify-nuxt-module',
     '@vueuse/nuxt',
-    'vuetify-nuxt-module'
+    '@nuxtjs/robots'
   ],
 
-  routeRules: {
-    '/': { prerender: true },
-    '/about': { prerender: true }
-  },
+  // routeRules: {
+  //   '/': { prerender: true },
+  //   '/about': { prerender: true }
+  // },
 
   auth: {
+    origin: process.env.ORIGIN,
     provider: {
       type: 'authjs'
     }
@@ -68,9 +70,12 @@ export default defineNuxtConfig({
       }
     }
   },
+  robots: {
+    /* module options */
+  },
 
   devtools: {
-    enabled: true
+    enabled: false
   }
 
   // plugins: ['/f:/projects/other/mobi_shop/plugins/01.trpcClient.ts']
