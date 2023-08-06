@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime'
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 import { publicProcedure, router } from '../trpc'
 import { MobileCreateInputObjectSchema, MobileUpdateOneSchema, MobileDeleteOneSchema } from '~/prisma/generated/schemas'
 
