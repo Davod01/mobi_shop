@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     '~/assets/animation.scss'
   ],
 
+  nitro: {
+    compressPublicAssets: true
+  },
+
   modules: [
     '@pinia/nuxt',
     // '@nuxtjs/i18n',

@@ -4,6 +4,7 @@
 import { useBasket } from '~/stores/basket'
 import { digitSeperator } from '~/composeable/utils'
 import logo from '~/assets/logo.png'
+import telegramIcon from '~/assets/svg/telegram-app.svg'
 
 const { items, remove_item } = useBasket()
 const { status, signOut } = useAuth()
@@ -180,7 +181,8 @@ const showAlert = () => {
             <v-img
               width="25"
               height="25"
-              src="/_nuxt/assets/svg/telegram-app.svg"
+              :src="telegramIcon"
+              alt="telegram icon"
             />
             @DavoudNar
           </v-chip>
