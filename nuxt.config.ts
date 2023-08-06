@@ -2,6 +2,9 @@
 import { fa } from 'vuetify/locale'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    NUXT_SECRET: 'GhxmV3o2yzqgWeHnl6RJZuxkGdTDM962'
+  },
   build: {
     transpile: [
       'trpc-nuxt',
@@ -30,7 +33,7 @@ export default defineNuxtConfig({
   // },
 
   auth: {
-    origin: process.env.ORIGIN,
+    baseURL: process.env.ORIGIN,
     provider: {
       type: 'authjs'
     }

@@ -3,6 +3,7 @@
 <script setup lang="ts">
 import { useBasket } from '~/stores/basket'
 import { digitSeperator } from '~/composeable/utils'
+import logo from '~/assets/logo.png'
 
 const { items, remove_item } = useBasket()
 const { status, signOut } = useAuth()
@@ -93,7 +94,7 @@ const showAlert = () => {
       <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer" />
 
       <div style="width: 200px;">
-        <v-img src="/_nuxt/assets/logo.png" class="pa-1" alt="logo" />
+        <v-img :src="logo" class="pa-1" alt="logo" />
       </div>
 
       <v-list class="d-none d-md-flex flex-row" variant="plain" active-class="text-purple-darken-4">
@@ -128,7 +129,7 @@ const showAlert = () => {
     <v-footer class="mt-4">
       <v-row class="footer-bg text-white">
         <v-col cols="10" sm="6">
-          <v-img src="/_nuxt/assets/logo.png" class="ma-2" max-width="320px" alt="logo" />
+          <v-img :src="logo" class="ma-2" max-width="320px" alt="logo" />
         </v-col>
 
         <v-col cols="12" sm="6" class="mt-sm-5">
