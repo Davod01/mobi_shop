@@ -1,0 +1,110 @@
+<template>
+  <div class="container">
+    <div>
+      <div class="loading-text" />
+      <div class="loader">
+        <div class="loader--dot" />
+        <div class="loader--dot" />
+        <div class="loader--dot" />
+        <div class="loader--dot" />
+        <div class="loader--dot" />
+        <div class="loader--dot" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="sass" scoped>
+$loader--width: 250px
+$loader-dot--size: 20px
+
+.container
+  height: 90vh
+  width: 100vw
+  display: flex
+  justify-content: center
+  align-items: center
+  font-family: Helvetica
+  direction: ltr
+  text-align: center
+
+.loading-text
+  display: block
+  width: $loader--width
+
+  &:after
+    content: "Loading"
+    font-weight: bold
+    animation:
+      name: loading-text
+      duration: 3s
+      iteration-count: infinite
+
+.loader
+  height: $loader-dot--size
+  width: $loader--width
+  display: block
+
+  &--dot
+    animation:
+      name: loader
+      timing-function: ease-in-out
+      duration: 3s
+      iteration-count: infinite
+    height: $loader-dot--size
+    width: $loader-dot--size
+    border-radius: 100%
+    background-color: black
+    position: absolute
+    border: 2px solid white
+
+    &:first-child
+      background-color: #8cc759
+      animation-delay: 0.5s
+
+    &:nth-child(2)
+      background-color: #8c6daf
+      animation-delay: 0.4s
+
+    &:nth-child(3)
+      background-color: #ef5d74
+      animation-delay: 0.3s
+
+    &:nth-child(4)
+      background-color: #f9a74b
+      animation-delay: 0.2s
+
+    &:nth-child(5)
+      background-color: #60beeb
+      animation-delay: 0.1s
+
+    &:nth-child(6)
+      background-color: #fbef5a
+      animation-delay: 0s
+
+@keyframes loader
+  15%
+    transform: translateX(0)
+
+  45%
+    transform: translateX( $loader--width - $loader-dot--size )
+
+  65%
+    transform: translateX( $loader--width - $loader-dot--size )
+
+  95%
+    transform: translateX(0)
+
+@keyframes loading-text
+  0%
+    content: "Loading   "
+
+  25%
+    content: "Loading.  "
+
+  50%
+    content: "Loading.. "
+
+  75%
+    content: "Loading..."
+</style>

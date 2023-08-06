@@ -5,6 +5,7 @@ import { useBasket } from '~/stores/basket'
 import { digitSeperator } from '~/composeable/utils'
 import logo from '~/assets/logo.png'
 import telegramIcon from '~/assets/svg/telegram-app.svg'
+const loading = ref<boolean>(true)
 
 const { items, remove_item } = useBasket()
 const { status, signOut } = useAuth()
@@ -17,7 +18,7 @@ const storeDrawer = ref<boolean>(false)
 const showAlert = () => {
   alert('متاسفانه این وبسایت اینچنین قابلیتی را پشتیبانی نمی کند')
 }
-
+onNuxtReady(() => { loading.value = false })
 </script>
 
 <template>
@@ -91,7 +92,7 @@ const showAlert = () => {
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar class="flex flex-row justify-space-between">
+    <v-app-bar scroll-behavior="hide" class="flex flex-row justify-space-between">
       <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer" />
 
       <div style="width: 200px;">
@@ -123,10 +124,14 @@ const showAlert = () => {
         <v-btn icon="mdi-basket" @click="storeDrawer = !storeDrawer" />
       </div>
     </v-app-bar>
+
     <NuxtLoadingIndicator />
+
     <v-main>
-      <slot />
+      <LoadingComp v-if="loading" />
+      <slot v-else />
     </v-main>
+
     <v-footer class="mt-4">
       <v-row class="footer-bg text-white">
         <v-col cols="10" sm="6">

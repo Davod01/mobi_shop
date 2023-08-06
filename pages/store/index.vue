@@ -191,7 +191,7 @@ const breadcrumb_items = [
                   :sm="displayMode"
                 >
                   <Transition name="slide-in-right" appear>
-                    <StoreListItems :mobile="mobile" />
+                    <LazyStoreListItems :mobile="mobile" />
                   </Transition>
                 </v-col>
               </v-row>
