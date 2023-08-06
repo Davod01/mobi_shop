@@ -21,6 +21,7 @@ defineProps<{
         <v-img
           :src="mobile.image ?? '/mobiles/samsung-galexy-j.jpg'"
           aspect-ratio="1"
+          :alt="`image of ${mobile.name}`"
         />
         <v-card-title>
           {{ mobile.title }}

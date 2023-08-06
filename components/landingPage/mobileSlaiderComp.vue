@@ -28,6 +28,7 @@
               src="/mobiles/Untitled-1-1-1-300x300.jpg"
               class="no-drag"
               height="200px"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -46,6 +47,7 @@
               src="/mobiles/samsung-galexy.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -64,6 +66,7 @@
               src="/mobiles/samsung-galexy.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -82,6 +85,7 @@
               src="/mobiles/samsung-galexy-note.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -100,6 +104,7 @@
               src="/mobiles/samsung-galexy-note-plus.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -118,6 +123,7 @@
               src="/mobiles/samsung-galexy-mgb.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>
@@ -136,6 +142,7 @@
               src="/mobiles/samsung-galexy-j.jpg"
               height="200px"
               class="no-drag"
+              alt="silder image"
               cover
             />
             <v-card-title>

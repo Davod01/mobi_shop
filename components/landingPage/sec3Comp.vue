@@ -38,7 +38,7 @@ onNuxtReady(() => {
     opacity: 0
   })
 
-  gsap.from('.sec3comp-traking-in', 1.8, {
+  gsap.from('.sec3comp-traking-in', 1.2, {
     scrollTrigger: {
       trigger: '.sec3comp-traking-in',
       start: 'top 40%'
@@ -57,6 +57,7 @@ onNuxtReady(() => {
         src="/landing-page/h2-banner5868.jpg"
         class="sec3comp-slide-right"
         min-height="100px"
+        alt="silder image"
         cover
       />
     </v-col>
@@ -66,6 +67,7 @@ onNuxtReady(() => {
         src="/landing-page/h2-banner422.jpg"
         class="sec3comp-slide-top"
         min-height="100px"
+        alt="silder image"
         cover
       />
     </v-col>
@@ -75,6 +77,7 @@ onNuxtReady(() => {
         src="/landing-page/h2-banner4565.jpg"
         class="sec3comp-slide-left"
         min-height="100px"
+        alt="silder image"
         cover
       />
     </v-col>
@@ -84,6 +87,7 @@ onNuxtReady(() => {
         src="/landing-page/pf-s86-pm-0133-01-Slider.jpg"
         class="sec3comp-visable"
         min-height="300px"
+        alt="silder image"
         cover
       >
         <div class="w-100 h-100 d-flex">

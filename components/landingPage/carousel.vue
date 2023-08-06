@@ -12,6 +12,7 @@
       <v-carousel-item
         src="/slider/slider01.jpg"
         cover
+        alt="slider first image"
       >
         <div class="w-100 h-100 d-flex mx-6">
           <div class="w-50 h-100 ">
@@ -39,6 +40,7 @@
       <v-carousel-item
         src="/slider/slider02.jpg"
         cover
+        alt="slider second image"
       >
         <div class="w-100 h-100 d-flex mx-6">
           <div class="w-50 h-100 ">
@@ -76,6 +78,7 @@
       <v-carousel-item
         src="/slider/slidmob1.jpg"
         cover
+        alt="slider first image"
       >
         <div class="d-flex flex-column align-center justify-start">
           <h2 class="text-h2 font-weight-bold pb-1 pt-4 mt-4">
@@ -93,6 +96,7 @@
       <v-carousel-item
         src="/slider/slidmob2.jpg"
         cover
+        alt="slider second image"
       >
         <div class="d-flex flex-column align-center justify-start text-white">
           <h2 class="text-h2 font-weight-bold pb-1 pt-4 mt-4">

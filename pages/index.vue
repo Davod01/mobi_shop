@@ -7,7 +7,7 @@ useSeoMeta({
   description: 'یک فروشگاه موبایل ساده',
   ogDescription: 'یک فروشگاه موبایل ساده',
   ogLocale: 'fa_IR',
-  ogImage: '/mobiles/samsung-galexy-j.jpg',
+  ogImage: '/slider/slider01.jpg',
   ogUrl: '[og:url]',
   twitterTitle: 'mobi shop',
   twitterDescription: 'a shop for no one hehe',
@@ -55,6 +55,7 @@ onNuxtReady(() => {
           <v-img
             src="/landing-page/1-2.jpg"
             class="land-slide-right"
+            alt="landing page Image number 2"
           />
         </v-col>
 
@@ -62,6 +63,7 @@ onNuxtReady(() => {
           <v-img
             src="/landing-page/2-1.jpg"
             class="land-slide-left"
+            alt="landing page Image number 2"
           />
         </v-col>
 

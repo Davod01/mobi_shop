@@ -66,6 +66,7 @@ const breadcrumb_items = [
             max-height="600"
             :src="mobile.image ?? '/mobiles/samsung-galexy-j.jpg'"
             aspect-ratio="1"
+            :alt="`this is image of ${mobile.name}`"
           >
             <template #placeholder>
               <div class="d-flex align-center justify-center fill-height">
@@ -119,6 +120,7 @@ const breadcrumb_items = [
                 width="70"
                 height="70"
                 src="/_nuxt/assets/svg/box.svg"
+                alt="express delivery icon"
               />
               <h6 class="text-subtitle-1 yekan-extra-bold">
                 تحویل اکسپرس
@@ -130,6 +132,7 @@ const breadcrumb_items = [
                 width="70"
                 height="70"
                 src="/_nuxt/assets/svg/support-24.svg"
+                alt="24 hour guarantee icon"
               />
               <h6 class="text-subtitle-1 yekan-extra-bold">
                 ضمانت 24 ساعته
@@ -141,6 +144,7 @@ const breadcrumb_items = [
                 width="70"
                 height="70"
                 src="/_nuxt/assets/svg/guarantee.svg"
+                alt="secure payment icon"
               />
               <h6 class="text-subtitle-1 yekan-extra-bold">
                 پرداخت امن
@@ -152,6 +156,7 @@ const breadcrumb_items = [
                 width="70"
                 height="70"
                 src="/_nuxt/assets/svg/7-guarantee.svg"
+                alt="7 day guarantee icon"
               />
               <h6 class="text-subtitle-1 yekan-extra-bold">
                 7 روز ضمانت

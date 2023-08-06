@@ -24,6 +24,7 @@ onNuxtReady(() => {
       <v-card width="400" class="mx-auto text-center">
         <v-img
           src="/landing-page/1573412291_143_بررسی-شیائومی-ردمی-نوت-8-و-ردمی-نوت-8-پرو-408x272x23x0x362x272x1580364309.jpg"
+          alt="mobile image"
           cover
         />
         <v-card-item>
@@ -43,6 +44,7 @@ onNuxtReady(() => {
         <v-img
           src="/landing-page/unnamed-310x207x16x0x277x207x1583923156.jpg"
           cover
+          alt="mobile image"
         />
         <v-card-item>
           <v-card-title class="font-weight-bold">
@@ -61,6 +63,7 @@ onNuxtReady(() => {
         <v-img
           src="/landing-page/unnamed1-310x207x16x0x277x207x1583919490.jpg"
           cover
+          alt="mobile image"
         />
         <v-card-item>
           <v-card-title class="font-weight-bold">
@@ -79,6 +82,7 @@ onNuxtReady(() => {
         <v-img
           src="/landing-page/اپل-واچ-2-408x272x23x0x362x272x1580363676.jpg"
           cover
+          alt="mobile image"
         />
         <v-card-item>
           <v-card-title class="font-weight-bold">
