@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client'
 import { MobileCreateInputObjectSchema } from '~/prisma/generated/schemas'
 
 export default defineEventHandler(async (event) => {
@@ -10,6 +11,12 @@ export default defineEventHandler(async (event) => {
 
     return mobileRes
   } catch (err: any) {
-    return { error: err }
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      throw createError({ statusMessage: err.code, message: err.message })
+    }
+    if (err instanceof Error) {
+      throw createError({ message: err.message })
+    }
+    throw err
   }
 })

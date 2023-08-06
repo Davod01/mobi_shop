@@ -1,4 +1,5 @@
 import { useValidatedBody } from 'h3-zod'
+import { Prisma } from '@prisma/client'
 import { UserCredentional } from '~/types/types'
 
 export default defineEventHandler(async (event) => {
@@ -14,6 +15,12 @@ export default defineEventHandler(async (event) => {
 
     return { message: 'created' }
   } catch (err: any) {
-    return { error: err }
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      throw createError({ statusMessage: err.code, message: err.message })
+    }
+    if (err instanceof Error) {
+      throw createError({ message: err.message })
+    }
+    throw err
   }
 })

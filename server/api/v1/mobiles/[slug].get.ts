@@ -1,6 +1,5 @@
 // import { MobileWhereUniqueInputObjectSchema } from 'prisma/generated/schemas'
-import { z } from 'zod'
-import { useValidatedParams } from 'h3-zod'
+import { Prisma } from '@prisma/client'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -16,6 +15,12 @@ export default defineEventHandler(async (event) => {
 
     return mobile
   } catch (err) {
-    return { err }
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      throw createError({ statusMessage: err.code, message: err.message })
+    }
+    if (err instanceof Error) {
+      throw createError({ message: err.message })
+    }
+    throw err
   }
 })

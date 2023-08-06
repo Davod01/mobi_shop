@@ -1,4 +1,5 @@
 import { useValidatedQuery } from 'h3-zod'
+// import { Prisma } from '@prisma/client'
 import { mobileParamsSchema } from '~/types/types'
 
 export default defineEventHandler(async (event) => {
@@ -39,6 +40,13 @@ export default defineEventHandler(async (event) => {
 
     return { params, mobiles, paginate_size: Math.ceil(count / take) }
   } catch (err) {
-    return { err }
+    // if (err instanceof Prisma.PrismaClientKnownRequestError) {
+    //   throw createError({ statusMessage: err.code, message: err.message })
+    // }
+    // if (err instanceof Error) {
+    //   throw createError({ message: err.message })
+    // }
+    // throw err
+    return JSON.stringify(err)
   }
 })

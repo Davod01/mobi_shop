@@ -29,6 +29,7 @@ if (error.value) {
   throw createError(error.value)
 }
 
+console.warn(res.value)
 const mobiles = res.value?.mobiles
 
 const filtersBar = ref<boolean>(false)
