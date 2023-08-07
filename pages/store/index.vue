@@ -33,6 +33,10 @@ const mobiles = res.value?.mobiles
 
 const filtersBar = ref<boolean>(false)
 
+const thereIsMobiles = computed(() => {
+  return mobiles.length > 0
+})
+
 const pagination_len = ref<number>(res.value?.paginate_size)
 
 async function page_update () {
@@ -183,7 +187,10 @@ const breadcrumb_items = [
             </v-col>
 
             <v-col>
-              <v-row class="mb-4">
+              <v-row
+                v-if="thereIsMobiles"
+                class="mb-4"
+              >
                 <v-col
                   v-for="mobile in mobiles"
                   :key="mobile.id"
@@ -195,6 +202,11 @@ const breadcrumb_items = [
                   </Transition>
                 </v-col>
               </v-row>
+              <div v-else class="text-center">
+                <h4 class="text-h4 text-info">
+                  متاسفانه هیچ داده ای موجود نمی باشد :)
+                </h4>
+              </div>
             </v-col>
           </v-row>
         </v-col>

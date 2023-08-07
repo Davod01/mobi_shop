@@ -31,7 +31,7 @@ useSeoMeta({
       </v-img>
     </v-col>
     <v-col cols="10" class="mx-auto">
-      <h2 class="text-h2">
+      <h2 class="text-h2 mb-8">
         درباره فروشگاه
       </h2>
       <p class="text-body-1 mt-2" style="line-height: 2rem;">

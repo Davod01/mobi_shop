@@ -31,10 +31,10 @@ export default defineNuxtConfig({
     '@nuxtjs/robots'
   ],
 
-  // routeRules: {
-  //   '/': { prerender: true },
-  //   '/about': { prerender: true }
-  // },
+  routeRules: {
+    '/': { prerender: true },
+    '/about': { prerender: true }
+  },
 
   auth: {
     baseURL: process.env.ORIGIN,
