@@ -11,11 +11,6 @@
  * ```
  */
 
-export default defineEventHandler(async (event) => {
-  const mobile = await event.context.prisma.mobile.findUniqueOrThrow({
-    where: {
-      id: 5
-    }
-  })
-  return mobile
+export default defineEventHandler(() => {
+  return 'hello world'
 })

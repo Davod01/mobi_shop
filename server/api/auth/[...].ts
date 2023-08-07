@@ -1,7 +1,7 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
 // import { PrismaAdapter } from '@auth/prisma-adapter'
 import { NuxtAuthHandler } from '#auth'
-import prisma from '~/server/db/prisma'
+import { prisma } from '~/server/db/prisma'
 import { UserCredentional } from '~/types/types'
 
 export default NuxtAuthHandler({
