@@ -12,5 +12,5 @@
  */
 
 export default defineEventHandler(() => {
-  return 'hello world! once again'
+  return 'hello world'
 })
