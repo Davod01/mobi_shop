@@ -1,5 +1,5 @@
 import { useValidatedQuery } from 'h3-zod'
-// import { Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { mobileParamsSchema } from '~/types/types'
 
 export default defineEventHandler(async (event) => {
@@ -11,19 +11,29 @@ export default defineEventHandler(async (event) => {
     const orderBy: any = {}
     const where: any = {}
 
+    if (params.contains) {
+      const name = {
+        contains: params.contains
+      }
+      where.name = name
+    }
+
     if (params.priceSortBy) {
       orderBy.price = params.priceSortBy
     }
-    if (params.minPrice > 1000000 || params.maxPrice < 100000000) {
-      const AND = [
-        {
-          price: { gte: params.minPrice ?? 0 }
-        },
-        {
-          price: { lte: params.maxPrice ?? 100000000 }
-        }
-      ]
-      where.AND = AND
+
+    if (params.minPrice && params.maxPrice) {
+      if (params.minPrice > 1000000 || params.maxPrice < 100000000) {
+        const AND = [
+          {
+            price: { gte: params.minPrice ?? 0 }
+          },
+          {
+            price: { lte: params.maxPrice ?? 100000000 }
+          }
+        ]
+        where.AND = AND
+      }
     }
 
     const [mobiles, count] = await event.context.prisma.$transaction([
@@ -40,13 +50,12 @@ export default defineEventHandler(async (event) => {
 
     return { params, mobiles, paginate_size: Math.ceil(count / take) }
   } catch (err) {
-    // if (err instanceof Prisma.PrismaClientKnownRequestError) {
-    //   throw createError({ statusMessage: err.code, message: err.message })
-    // }
-    // if (err instanceof Error) {
-    //   throw createError({ message: err.message })
-    // }
-    // throw err
-    return JSON.stringify(err)
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      throw createError({ statusMessage: err.code, message: err.message })
+    }
+    if (err instanceof Error) {
+      throw createError({ message: err.message })
+    }
+    throw err
   }
 })

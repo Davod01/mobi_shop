@@ -25,7 +25,8 @@ export const mobileParamsSchema = z.object({
   take: z.coerce.number().min(6).max(32).optional(),
   priceSortBy: z.enum(['asc', 'desc']).optional(),
   minPrice: z.coerce.number().nonnegative().optional(),
-  maxPrice: z.coerce.number().nonnegative().optional()
+  maxPrice: z.coerce.number().nonnegative().optional(),
+  contains: z.enum(['iPhone', 'Samsung', 'Xiaomi']).optional()
 })
 
 export const basketItems = z.array(basketItem)

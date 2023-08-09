@@ -13,7 +13,7 @@
 
     <v-col cols="12">
       <v-slide-group
-        class="pa-4 gap-10"
+        class="gap-5"
         center-active
         show-arrows
       >

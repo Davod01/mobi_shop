@@ -20,13 +20,22 @@ onNuxtReady(() => {
 
 <template>
   <v-row class="justify-center align-center">
-    <v-col class="blogPost-scale-in" cols="12" sm="6" lg="4">
+    <v-col class="blogPost-scale-in" cols="12" md="6" lg="4">
       <v-card width="400" class="mx-auto text-center">
         <v-img
           src="/landing-page/1573412291_143_بررسی-شیائومی-ردمی-نوت-8-و-ردمی-نوت-8-پرو-408x272x23x0x362x272x1580364309.jpg"
           alt="mobile image"
           cover
-        />
+        >
+          <template #placeholder>
+            <div class="d-flex align-center justify-center fill-height">
+              <v-progress-circular
+                color="grey-lighten-4"
+                indeterminate
+              />
+            </div>
+          </template>
+        </v-img>
         <v-card-item>
           <v-card-title class="font-weight-bold">
             مشخصات اصلی سامسونگ
@@ -39,13 +48,22 @@ onNuxtReady(() => {
       </v-card>
     </v-col>
 
-    <v-col class="blogPost-scale-in" cols="12" sm="6" lg="4">
+    <v-col class="blogPost-scale-in" cols="12" md="6" lg="4">
       <v-card width="400" class="mx-auto text-center">
         <v-img
           src="/landing-page/unnamed-310x207x16x0x277x207x1583923156.jpg"
           cover
           alt="mobile image"
-        />
+        >
+          <template #placeholder>
+            <div class="d-flex align-center justify-center fill-height">
+              <v-progress-circular
+                color="grey-lighten-4"
+                indeterminate
+              />
+            </div>
+          </template>
+        </v-img>
         <v-card-item>
           <v-card-title class="font-weight-bold">
             سونی با وجود تولید گوشی‌های
@@ -58,13 +76,22 @@ onNuxtReady(() => {
       </v-card>
     </v-col>
 
-    <v-col class="blogPost-scale-in" cols="12" sm="6" lg="4">
+    <v-col class="blogPost-scale-in" cols="12" md="6" lg="4">
       <v-card width="400" class="mx-auto text-center">
         <v-img
           src="/landing-page/unnamed1-310x207x16x0x277x207x1583919490.jpg"
           cover
           alt="mobile image"
-        />
+        >
+          <template #placeholder>
+            <div class="d-flex align-center justify-center fill-height">
+              <v-progress-circular
+                color="grey-lighten-4"
+                indeterminate
+              />
+            </div>
+          </template>
+        </v-img>
         <v-card-item>
           <v-card-title class="font-weight-bold">
             شکایت شرکت فناوری پزشکی
@@ -77,13 +104,22 @@ onNuxtReady(() => {
       </v-card>
     </v-col>
 
-    <v-col class="blogPost-scale-in" cols="12" sm="6" lg="4">
+    <v-col class="blogPost-scale-in" cols="12" md="6" lg="4">
       <v-card width="400" class="mx-auto text-center">
         <v-img
           src="/landing-page/اپل-واچ-2-408x272x23x0x362x272x1580363676.jpg"
           cover
           alt="mobile image"
-        />
+        >
+          <template #placeholder>
+            <div class="d-flex align-center justify-center fill-height">
+              <v-progress-circular
+                color="grey-lighten-4"
+                indeterminate
+              />
+            </div>
+          </template>
+        </v-img>
         <v-card-item>
           <v-card-title class="font-weight-bold">
             Xiaomi Redmi Note ردمی نوت

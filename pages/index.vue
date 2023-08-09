@@ -55,6 +55,7 @@ onNuxtReady(() => {
           <v-img
             src="/landing-page/1-2.jpg"
             class="land-slide-right"
+            eager
             alt="landing page Image number 2"
           />
         </v-col>
@@ -63,6 +64,7 @@ onNuxtReady(() => {
           <v-img
             src="/landing-page/2-1.jpg"
             class="land-slide-left"
+            eager
             alt="landing page Image number 2"
           />
         </v-col>

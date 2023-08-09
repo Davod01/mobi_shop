@@ -38,7 +38,8 @@ onNuxtReady(() => {
     opacity: 0
   })
 
-  gsap.from('.sec3comp-traking-in', 1.2, {
+  gsap.from('.sec3comp-traking-in', 0.5, {
+    duration: 0.3,
     scrollTrigger: {
       trigger: '.sec3comp-traking-in',
       start: 'top 40%'

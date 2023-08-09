@@ -5,6 +5,9 @@ import { digitSeperator } from '~/composeable/utils'
 import type { mobileFilterParamsSchema } from '~/types/types'
 
 // const headers = useRequestHeaders(['cookie']) as HeadersInit
+definePageMeta({
+  keepalive: true
+})
 useSeoMeta({
   title: 'محصولات',
   ogTitle: 'محصولات',
@@ -23,6 +26,8 @@ const ordering = ref<string>('')
 const page = ref<number>(1)
 const displayMode = ref<number>(4)
 const priceRange = ref<[number, number]>([0, 100000000])
+const { y } = useWindowScroll()
+const brands = ref<string | undefined>()
 
 const { data: res, error } : { data: Ref<MobilePaginatedResponseSchema>, error: Ref } = await useFetch('/api/v1/mobiles')
 if (error.value) {
@@ -33,6 +38,9 @@ const mobiles = res.value?.mobiles
 
 const filtersBar = ref<boolean>(false)
 
+const wrapperElement = ref(null)
+const { height } = useElementSize(wrapperElement)
+const stickyPosition = computed(() => (((y.value) / height.value) * 100) + '%')
 const thereIsMobiles = computed(() => {
   return mobiles.length > 0
 })
@@ -46,6 +54,9 @@ async function page_update () {
   if (priceRange.value[0] > 1000000 || priceRange.value[1] < 100000000) {
     query.minPrice = priceRange.value[0]
     query.maxPrice = priceRange.value[1]
+  }
+  if (brands.value) {
+    query.contains = brands.value as any
   }
   const { data, error } : { data: Ref<MobilePaginatedResponseSchema>, error: Ref } = await useFetch('/api/v1/mobiles', {
     query
@@ -92,7 +103,11 @@ const breadcrumb_items = [
     to: '/store'
   }
 ]
-
+watchThrottled(brands, () => {
+  page_update()
+},
+{ throttle: 500 }
+)
 </script>
 
 <template>
@@ -110,58 +125,75 @@ const breadcrumb_items = [
         </h2>
       </v-img>
     </v-col>
-    <v-col cols="12">
+    <v-col ref="wrapperElement" cols="12">
       <v-row class="mx-4">
         <v-col cols="3" class="d-none d-md-block">
-          <v-list class="inherit-bg text-grey-darken-1" variant="plain">
-            <v-list-subheader color="black" class="font-weight-bold">
-              دسته بندی مخصولات
-            </v-list-subheader>
-            <v-list-item>
-              موبایل
-            </v-list-item>
-          </v-list>
-
-          <v-divider class="my-3" />
-
-          <div>
-            <h6 class="text-subtitle-1 font-weight-bold">
-              جستجو بر اساس قیمت
+          <div style="position: sticky; width: 280px" :style="{top: stickyPosition}">
+            <h6 class="text-h6">
+              دسته بندی محصولات
             </h6>
-            <v-range-slider
-              v-model="priceRange"
-              color="#831aaf"
-              step="5000000"
-              min="0"
-              max="100000000"
-            />
+            <v-chip-group
+              v-model="brands"
+              class="flex-column"
+              selected-class="text-deep-purple-accent-4"
+              style="width: 140px"
+              filter
+              column
+            >
+              <v-chip value="iPhone">
+                ایفون
+              </v-chip>
 
-            <div class="text-body-1">
-              <span class="font-weight-light text-medium-emphasis">قیمت: </span>
-              <span>{{ digitSeperator( priceRange[0].toString() ) }} </span>
-              تا
-              <span>{{ digitSeperator( priceRange[1].toString() ) }}</span>
+              <v-chip value="Samsung">
+                سامسونگ
+              </v-chip>
+
+              <v-chip value="Xiaomi">
+                شیائومی
+              </v-chip>
+            </v-chip-group>
+
+            <v-divider class="my-3" />
+
+            <div>
+              <h6 class="text-subtitle-1 font-weight-bold">
+                جستجو بر اساس قیمت
+              </h6>
+              <v-range-slider
+                v-model="priceRange"
+                color="#831aaf"
+                step="5000000"
+                min="0"
+                max="100000000"
+              />
+
+              <div class="text-body-1">
+                <span class="font-weight-light text-medium-emphasis">قیمت: </span>
+                <span>{{ digitSeperator( priceRange[0].toString() ) }} </span>
+                تا
+                <span>{{ digitSeperator( priceRange[1].toString() ) }}</span>
+              </div>
+
+              <v-btn
+                density="compact"
+                rounded="xl"
+                class="my-2 mx-3"
+                @click="remove_price_range"
+              >
+                ریست
+              </v-btn>
+              <v-btn
+                density="compact"
+                rounded="xl"
+                class="my-2 mx-3"
+                @click="set_price_range(priceRange[0], priceRange[1])"
+              >
+                فیلتر
+              </v-btn>
             </div>
 
-            <v-btn
-              density="compact"
-              rounded="xl"
-              class="my-2 mx-3"
-              @click="remove_price_range"
-            >
-              ریست
-            </v-btn>
-            <v-btn
-              density="compact"
-              rounded="xl"
-              class="my-2 mx-3"
-              @click="set_price_range(priceRange[0], priceRange[1])"
-            >
-              فیلتر
-            </v-btn>
+            <v-divider class="my-3" />
           </div>
-
-          <v-divider class="my-3" />
         </v-col>
 
         <v-col cols="12" md="9">
@@ -224,3 +256,11 @@ const breadcrumb_items = [
     </v-col>
   </v-row>
 </template>
+
+<style lang="scss">
+.sticy-sidebar{
+  position: fixed;
+  top: 70px;
+  width: 280px;
+}
+</style>

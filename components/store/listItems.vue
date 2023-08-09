@@ -21,8 +21,18 @@ defineProps<{
         <v-img
           :src="mobile.image ?? '/mobiles/samsung-galexy-j.jpg'"
           aspect-ratio="1"
+          transition="slide-in-right"
           :alt="`image of ${mobile.name}`"
-        />
+        >
+          <template #placeholder>
+            <div class="d-flex align-center justify-center fill-height">
+              <v-progress-circular
+                color="grey-lighten-4"
+                indeterminate
+              />
+            </div>
+          </template>
+        </v-img>
         <v-card-title>
           {{ mobile.title }}
         </v-card-title>

@@ -12,6 +12,7 @@
       <v-carousel-item
         src="/slider/slider01.jpg"
         cover
+        eager
         alt="slider first image"
       >
         <div class="w-100 h-100 d-flex mx-6">
@@ -58,7 +59,7 @@
                 </p>
               </transition>
               <transition name="scale-in-hor-center" appear>
-                <v-btn to="/store" rounded="xl" class=" mt-3 font-weight-medium btn-fw-600">
+                <v-btn to="/store" rounded="xl" class=" mt-3 font-weight-medium btn-fw-600 text-black">
                   مشاهده محصولات
                 </v-btn>
               </transition>
@@ -73,6 +74,7 @@
       cycle
       interval="4000"
       reverse
+      eager
       class="d-block d-sm-none"
     >
       <v-carousel-item
@@ -81,13 +83,13 @@
         alt="slider first image"
       >
         <div class="d-flex flex-column align-center justify-start">
-          <h2 class="text-h2 font-weight-bold pb-1 pt-4 mt-4">
+          <h2 class="text-h3 font-weight-bold pb-1 pt-4 mt-4">
             فروشگاه موبایل
           </h2>
           <p class="text-h5 font-weight-medium py-2">
             فروش تخصصی انواع موبایل و تبلت
           </p>
-          <v-btn rounded="xl" class="mt-3 font-weight-medium btn-fw-600">
+          <v-btn to="/store" rounded="xl" class="mt-3 font-weight-medium btn-fw-600">
             مشاهده محصولات
           </v-btn>
         </div>
@@ -99,13 +101,13 @@
         alt="slider second image"
       >
         <div class="d-flex flex-column align-center justify-start text-white">
-          <h2 class="text-h2 font-weight-bold pb-1 pt-4 mt-4">
+          <h2 class="text-h3 font-weight-bold pb-1 pt-4 mt-4">
             فروشگاه موبایل
           </h2>
           <p class="text-h5 font-weight-medium py-2">
             فروش تخصصی انواع موبایل و تبلت
           </p>
-          <v-btn rounded="xl" class="mt-3 font-weight-medium btn-fw-600">
+          <v-btn to="/store" rounded="xl" class="mt-3 font-weight-medium btn-fw-600 text-black">
             مشاهده محصولات
           </v-btn>
         </div>

@@ -3,13 +3,16 @@ import { fa } from 'vuetify/locale'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    NUXT_SECRET: 'GhxmV3o2yzqgWeHnl6RJZuxkGdTDM962'
+    NUXT_SECRET: process.env.NUXT_SECRET
   },
   build: {
     transpile: [
       'trpc-nuxt',
       'gsap'
     ]
+  },
+  experimental: {
+    viewTransition: true
   },
 
   css: [
@@ -31,10 +34,10 @@ export default defineNuxtConfig({
     '@nuxtjs/robots'
   ],
 
-  routeRules: {
-    '/': { prerender: true },
-    '/about': { prerender: true }
-  },
+  // routeRules: {
+  //   '/': { prerender: true },
+  //   '/about': { prerender: true }
+  // },
 
   auth: {
     baseURL: process.env.ORIGIN,
