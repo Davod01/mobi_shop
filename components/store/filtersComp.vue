@@ -9,7 +9,7 @@
     <v-col cols="12" sm="6">
       <v-list class="inherit-bg text-grey-darken-1" variant="plain">
         <v-list-subheader color="black" class="font-weight-bold">
-          مرتب سازی توسط
+          مرتب سازی بر اساس
         </v-list-subheader>
         <v-list-item @click="$emit('set_ordering', '')">
           حذف مرتب سازی

@@ -87,8 +87,9 @@ onNuxtReady(() => {
       <v-img
         src="/landing-page/pf-s86-pm-0133-01-Slider.jpg"
         class="sec3comp-visable"
-        min-height="300px"
+        min-height="350px"
         alt="silder image"
+        aspect-ratio="1/1"
         cover
       >
         <div class="w-100 h-100 d-flex">
@@ -116,5 +117,5 @@ onNuxtReady(() => {
   </v-row>
 </template>
 
-<style scoped>
+<style>
 </style>

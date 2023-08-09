@@ -198,7 +198,7 @@ watchThrottled(brands, () => {
 
         <v-col cols="12" md="9">
           <v-row>
-            <v-col cols="12" class="d-flex justify-space-between">
+            <v-col cols="12" class="d-flex justify-space-between align-center">
               <v-breadcrumbs
                 :items="breadcrumb_items"
               />
@@ -247,6 +247,7 @@ watchThrottled(brands, () => {
           <ClientOnly>
             <v-pagination
               v-model="page"
+              class="mx-2 mx-sm-0"
               :length="pagination_len"
               @update:model-value="page_update"
             />
